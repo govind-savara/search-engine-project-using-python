@@ -1,0 +1,5 @@
+cherrypy==5.4.0
+peewee==2.8.1
+PyMySQL
+beautifulsoup4
+gensim

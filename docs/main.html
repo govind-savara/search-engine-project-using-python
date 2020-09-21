@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>DosePacker search-engine</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <style>
+        #main_body {
+            display: block;
+            text-align: center;
+            margin: 200px 400px;
+        }
+        #q {
+            width: 400px;
+            font-size: 16px;
+            padding: 2px 5px;
+        }
+        img {
+            width: 300px;
+            height: 100px;
+        }
+        #footer {
+            margin-top:200px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+    <div id="main_body">
+        <form name="searchform" action="query_result.html" method="get">
+            <img src="images/logo.png"> <br> <br>
+            <input id="q" name="keyword" type="text" placeholder="Enter text to search" maxlength="200">
+            <input type="submit" value="Search"><br>
+        </form>
+
+    </div>
+
+    <div id="footer">
+        © Copyright 2015 Dosepack LLC.
+    </div>
+
+</body>
+</html>

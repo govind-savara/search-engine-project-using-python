@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DosePack-Search Result</title>
+    <style>
+        #header {
+            height: 100px;
+            margin: 20px 40px;
+            background-color: #f1f1f1;
+        }
+        #logo {
+            width: 230px;
+            padding: 20px 10px;
+            margin: 5px;
+            float: left;
+        }
+        #search_input {
+            width: 500px;
+            font-size: 16px;
+            margin: 30px 0px 35px 0px;
+            padding: 5px 0px 5px 5px;
+        }
+        #btn_search {
+            background-color: #4285f4;
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding: 0px;
+        }
+        #main_result {
+            width: 800px;
+            min-height: 700px;
+            margin: 20px 200px;
+            //background-color: #ddffdd;
+        }
+        #error_display {
+            font-size: 20px;
+            color: red;
+            padding: 20px 50px;
+        }
+        #footer {
+            margin-top:20px;
+            padding: 20px;
+            text-align: center;
+        }
+		h3 {
+			display: block;
+			font-size: 1.17em;
+			-webkit-margin-before: 0em;
+			-webkit-margin-after: 0em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+			font-weight: bold;
+		}
+    </style>
+    <link rel="stylesheet" href="css/main_content.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/web-service-calls.js"></script>
+    <script src="js/dynamic_content_display.js"></script>
+    <script src="js/pagination.js"></script>
+
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <img src="images/logo.png">
+        </div>
+        <div id="search_box">
+            <input id="search_input" type="text" placeholder="Enter text to search" value="">
+            <button id="btn_search"><img src="images/search-icon-white2.png"></button>
+        </div>
+    </div>
+    <div id="main_result">
+        <p id="error_display"></p>
+        <div id="total_count_display">
+
+        </div><br>
+        <div id="content">
+
+        </div>
+    </div>
+    <div id="paginate">
+
+    </div>
+    <div id="footer">
+        © Copyright 2015 Dosepack LLC.
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#btn_search").click(function(){
+                value = $("#search_input").val();
+                console.log('value:', value);
+                if(value == "") {
+                    document.getElementById("error_display").innerHTML = "Please enter any text to search!";
+                } else{
+                    getWebserviceResponseGet(value);
+                }
+            });
+            $("#search_input").keypress(function(){
+                document.getElementById("error_display").innerHTML = "";
+                document.getElementById("total_count_display").innerHTML = "";
+                document.getElementById("content").innerHTML = "";
+                document.getElementById("paginate").innerHTML = "";
+            })
+        });
+    </script>
+</body>
+</html>
